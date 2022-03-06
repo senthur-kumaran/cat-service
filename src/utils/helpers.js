@@ -3,14 +3,10 @@ const request = require('request');
 const blend = require('@mapbox/blend');
 const { createWriteStream } = require('fs');
 
-const requestParams = (message, width, height, color, size) => {
-  const params = {};
-
-  params.url = `https://cataas.com/cat/says/${message}?width=${width}&height=${height}&color${color}&s=${size}`;
-  params.encoding = 'binary';
-
-  return params;
-};
+const requestParams = (message, width, height, color, size) => ({
+  url: `https://cataas.com/cat/says/${message}?width=${width}&height=${height}&color${color}&s=${size}`,
+  encoding: 'binary',
+});
 
 const bufferFrom = (body) => Buffer.from(body, 'binary');
 
